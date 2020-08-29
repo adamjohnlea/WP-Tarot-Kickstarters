@@ -62,8 +62,6 @@ class wp_tarot_kickstarters extends WP_Widget {
 
 	public function showRepos() {
 		$url ='https://www.kickstarter.com/projects/search.json?search=&term=tarot';
-		//$options = array('http' => array('user_agent' => $_SERVER['HTTP_USER_AGENT']));
-		//$context = stream_context_create($options);
 		$response = wp_remote_get($url);
 
 		if( is_wp_error( $response ) ) {
@@ -72,10 +70,6 @@ class wp_tarot_kickstarters extends WP_Widget {
 
 		$body = wp_remote_retrieve_body($response);
 		$decks = json_decode($body, true);
-
-// 		echo '<pre>';
-// print_r($repos);
-// exit;
 
 		if(empty($decks->message)) {
 
