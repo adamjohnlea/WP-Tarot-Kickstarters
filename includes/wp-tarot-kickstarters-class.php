@@ -23,7 +23,7 @@ class wp_tarot_kickstarters extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		echo $this->showRepos();
+		echo $this->showDecks();
 
 		echo $args['after_widget'];
 
@@ -60,7 +60,7 @@ class wp_tarot_kickstarters extends WP_Widget {
 		return $instance;
 	}
 
-	public function showRepos() {
+	public function showDecks() {
 		$url ='https://www.kickstarter.com/projects/search.json?search=&term=tarot';
 		$response = wp_remote_get($url);
 
